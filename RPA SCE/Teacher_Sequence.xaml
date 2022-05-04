@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Teacher_Sequence" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1348,2852" sap2010:WorkflowViewState.IdRef="Teacher_Sequence_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/word" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Teacher_Sequence" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1082.4,4490.4" sap2010:WorkflowViewState.IdRef="Teacher_Sequence_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/word" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="74">
+    <scg:List x:TypeArguments="x:String" Capacity="40">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -44,7 +44,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="34">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -81,7 +81,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Teacher_Sequence" sap:VirtualizedContainerService.HintSize="1086.4,2787.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Teacher_Sequence" sap:VirtualizedContainerService.HintSize="1086.4,4425.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="TeacherDataTable" />
       <Variable x:TypeArguments="x:String" Name="Template" />
@@ -109,13 +109,13 @@
         <InArgument x:TypeArguments="x:String">["Payroll Receipts\"]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[TeacherDataTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="1044.8,2366.4" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[TeacherDataTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="1044.8,4004.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1011.2,2245.6" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1011.2,3884" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="PaidStatus" />
             </Sequence.Variables>
@@ -127,9 +127,9 @@
             <ui:CopyFile ContinueOnError="{x:Null}" Destination="Payroll Receipt Template.docx" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="969.6,160" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[Template]" />
             <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="969.6,85.6" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[CurrentRow.item(2)]" />
             <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="969.6,85.6" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[CurrentRow.item(7).ToString]" />
-            <If Condition="[CurrentRow.item(7).ToString.Equals(&quot;True&quot;)]" sap:VirtualizedContainerService.HintSize="969.6,1701.6" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[CurrentRow.item(7).ToString.Equals(&quot;True&quot;)]" sap:VirtualizedContainerService.HintSize="969.6,3340" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="550.4,1542.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence sap:VirtualizedContainerService.HintSize="550.4,3180.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="SenderPassword" />
                     <Variable x:TypeArguments="x:String" Default="Paid" Name="Installment1Status" />
@@ -142,13 +142,16 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="508.8,85.6" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;Paid&quot;]" />
-                  <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="Payroll Receipt Template.docx" sap:VirtualizedContainerService.HintSize="508.8,1324" sap2010:WorkflowViewState.IdRef="WordApplicationScope_1">
+                  <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="Payroll Receipt Template.docx" sap:VirtualizedContainerService.HintSize="508.8,2962.4" sap2010:WorkflowViewState.IdRef="WordApplicationScope_1">
                     <p:WordApplicationScope.Body>
                       <ActivityAction x:TypeArguments="ui:WordDocument">
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="ui:WordDocument" Name="WordDocumentScope" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="475.2,1214.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="475.2,2852.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:Int32" Name="Paid_Days" />
+                          </Sequence.Variables>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -157,6 +160,14 @@
                           <p:WordReplaceText Found="{x:Null}" DisplayName="Replace Text in Document" sap:VirtualizedContainerService.HintSize="433.6,164.8" sap2010:WorkflowViewState.IdRef="WordReplaceText_1" Replace="[CurrentRow.item(1).ToString]" ReplaceAll="True" Search="James Robert" />
                           <p:WordReplaceText Found="{x:Null}" DisplayName="Replace Text in Document" sap:VirtualizedContainerService.HintSize="433.6,164.8" sap2010:WorkflowViewState.IdRef="WordReplaceText_2" Replace="[CurrentRow.item(0).ToString]" ReplaceAll="True" Search="454545" />
                           <p:WordReplaceText Found="{x:Null}" DisplayName="Replace Text in Document" sap:VirtualizedContainerService.HintSize="433.6,164.8" sap2010:WorkflowViewState.IdRef="WordReplaceText_3" Replace="[DateTime.Now.ToShortDateString]" ReplaceAll="True" Search="01/31/14" />
+                          <p:WordReplaceText Found="{x:Null}" DisplayName="Replace Text in Document" sap:VirtualizedContainerService.HintSize="433.6,164.8" sap2010:WorkflowViewState.IdRef="WordReplaceText_4" Replace="[CurrentRow.item(9).ToString]" ReplaceAll="True" Search="Computer" />
+                          <p:WordReplaceText Found="{x:Null}" DisplayName="Replace Text in Document" sap:VirtualizedContainerService.HintSize="433.6,164.8" sap2010:WorkflowViewState.IdRef="WordReplaceText_5" Replace="[CurrentRow.item(8).ToString]" ReplaceAll="True" Search="January" />
+                          <p:WordReplaceText Found="{x:Null}" DisplayName="Replace Text in Document" sap:VirtualizedContainerService.HintSize="433.6,164.8" sap2010:WorkflowViewState.IdRef="WordReplaceText_6" Replace="[CurrentRow.item(10).ToString]" ReplaceAll="True" Search="259248" />
+                          <p:WordReplaceText Found="{x:Null}" DisplayName="Replace Text in Document" sap:VirtualizedContainerService.HintSize="433.6,164.8" sap2010:WorkflowViewState.IdRef="WordReplaceText_7" Replace="[CurrentRow.item(5).ToString+&quot; Days&quot;]" ReplaceAll="True" Search="31 Days" />
+                          <p:WordReplaceText Found="{x:Null}" DisplayName="Replace Text in Document" sap:VirtualizedContainerService.HintSize="433.6,164.8" sap2010:WorkflowViewState.IdRef="WordReplaceText_8" Replace="[CurrentRow.item(6).ToString+&quot; Days&quot;]" ReplaceAll="True" Search="29 Days" />
+                          <p:WordReplaceText Found="{x:Null}" DisplayName="Replace Text in Document" sap:VirtualizedContainerService.HintSize="433.6,164.8" sap2010:WorkflowViewState.IdRef="WordReplaceText_9" Replace="[CurrentRow.item(3).ToString]" ReplaceAll="True" Search="81000" />
+                          <p:WordReplaceText Found="{x:Null}" DisplayName="Replace Text in Document" sap:VirtualizedContainerService.HintSize="433.6,164.8" sap2010:WorkflowViewState.IdRef="WordReplaceText_10" Replace="[CurrentRow.item(4).ToString]" ReplaceAll="True" Search="5000" />
+                          <p:WordReplaceText Found="{x:Null}" DisplayName="Replace Text in Document" sap:VirtualizedContainerService.HintSize="433.6,164.8" sap2010:WorkflowViewState.IdRef="WordReplaceText_11" Replace="[CurrentRow.item(11).ToString]" ReplaceAll="True" Search="76000" />
                           <p:WordExportToPdf DisplayName="Save Document as PDF" FilePath="[PayrollFolderPath+CurrentRow.item(0).ToString]" sap:VirtualizedContainerService.HintSize="433.6,111.2" sap2010:WorkflowViewState.IdRef="WordExportToPdf_1" />
                           <ui:CloseApplication DisplayName="Close Application 'document Payroll'" sap:VirtualizedContainerService.HintSize="433.6,107.2" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
                             <ui:CloseApplication.Target>
@@ -171,12 +182,10 @@
                             </ui:CloseApplication.Target>
                           </ui:CloseApplication>
                           <ui:GetPassword DisplayName="Get Password" sap:VirtualizedContainerService.HintSize="433.6,22.4" sap2010:WorkflowViewState.IdRef="GetPassword_1" ProtectedPassword="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAVRa5m4/Ey0mJCoR4m0Q+KgAAAAACAAAAAAAQZgAAAAEAACAAAADwKms9PwhDfwN8HigL+FnPBXy1yvtzNqWROb65YpMXcgAAAAAOgAAAAAIAACAAAACea3sBubQPORijckTZgoJ1VjhouxfBu7iMlYKCuNSFmiAAAAAe9t2nU/upqgMUQWjLHCkY5S97AWl4EXsPdJq6Ure5l0AAAACWRXyGDjlyj3Gd+iBB+7ohUFBOhDKY8ng1uIOzBWVK16rnXQ2PcXgyND4eVphHo5mCHixEzYxvAm0iXOrMkuyz" Result="[SenderPassword]" />
-                          <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" Account="moneytracker22@gmail.com" Body="Hello" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="433.6,146.4" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="Normal" IsBodyHtml="False" IsDraft="False" Sensitivity="Normal" Subject="Fees Reminder" TimeoutMS="20000" To="[CurrentRow.item(2).ToString]">
+                          <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" Account="moneytracker22@gmail.com" Body="[&quot;Hello &quot;+CurrentRow.item(1).ToString]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="433.6,146.4" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="Normal" IsBodyHtml="False" IsDraft="False" Sensitivity="Normal" Subject="[&quot;Payroll Slip for &quot;+CurrentRow.item(8).ToString+&quot; Month&quot;]" TimeoutMS="20000" To="[CurrentRow.item(2).ToString]">
                             <ui:SendOutlookMail.Files>
                               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
-                                <InArgument x:TypeArguments="x:String">
-                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="PayrollFolderPath+CurrentRow.item(0).ToString+&quot;.pdf&quot;" />
-                                </InArgument>
+                                <InArgument x:TypeArguments="x:String">[PayrollFolderPath+CurrentRow.item(0).ToString+".pdf"]</InArgument>
                               </scg:List>
                             </ui:SendOutlookMail.Files>
                           </ui:SendOutlookMail>
